@@ -1,0 +1,67 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- Google fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,300|Roboto:400italic,700italic,700,400' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Syncopate:400,700' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+    <div id="loading-shell">
+        <div id="loading" class="container">
+            <h1>Loading...</h1>
+            <span class="glyphicon glyphicon-refresh"></span>
+        </div>
+    </div>
+</body>
+
+<style>
+#loading {
+    color: white;
+    text-align: center;
+    background: rgba(79,151,93,0.5);
+    padding: 1em;
+    width: 200px;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-100px, -111px);
+}
+
+h1 {
+    font-family: 'Oswald', 'Roboto', sans-serif;
+    font-size: 23pt;
+    text-transform: uppercase;
+}
+
+#loading .glyphicon-refresh {
+    font-size: 9em;
+}
+</style>
+
+<script>
+$(document).ready(function() {
+    // "LOADING" ANIMATION
+    // ///////////////////
+    var degrees = 0;
+    setInterval(function(){
+        $('#loading .glyphicon-refresh').css('transform','rotate('+degrees+'deg)');
+        if (degrees == 359) {
+            degrees = 0
+        } else {
+            degrees ++
+        }
+    }, 1); // setInterval
+});
+</script>
+
+</html>
