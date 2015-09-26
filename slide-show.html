@@ -80,11 +80,7 @@ $(document).ready(function() {
         $('.window').animate({
             scrollLeft: slidePositions[index]
         }, 500);
-        if (index == slidePositions.length - 1) {
-            index = 0;
-        } else {
-            index ++;
-        }
+        index = (index == slidePositions.length - 1)? 0 : index+1;
     }, 2000)
 
 });
