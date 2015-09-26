@@ -1,0 +1,93 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="slide-show">
+        <div class="window">
+            <div class="reel">
+
+                <div class="slide">
+                </div>
+                <div class="slide">
+                </div>
+                <div class="slide">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+<style>
+
+.slide-show {
+}
+
+.window {
+    width: 500px;
+    height: 500px;
+    margin: 50px auto;
+    padding: 0;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.reel {
+    white-space: nowrap;
+}
+
+.slide {
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+}
+
+.slide:nth-of-type(1) {
+    background-color: red;
+}
+
+.slide:nth-of-type(2) {
+    background-color: blue;
+}
+
+.slide:nth-of-type(3) {
+    background-color: yellow;
+}
+
+</style>
+
+<script>
+$(document).ready(function() {
+    // Get the positions of each slide
+    var slidePositions = [];
+    for (i = 0; i < $('.slide').length; i ++) {
+        slidePositions.push( $('.slide').eq(i).offset().left - $('.window').offset().left );
+    }
+
+    console.log(slidePositions);
+
+    var index = 0;
+    setInterval(function(){
+        $('.window').animate({
+            scrollLeft: slidePositions[index]
+        }, 500);
+        if (index == slidePositions.length - 1) {
+            index = 0;
+        } else {
+            index ++;
+        }
+    }, 2000)
+
+});
+</script>
+
+</html>
