@@ -70,7 +70,8 @@ $(document).ready(function() {
     // Get the positions of each slide
     var slidePositions = [];
     for (i = 0; i < $('.slide').length; i ++) {
-        slidePositions.push( $('.slide').eq(i).offset().left - $('.window').offset().left );
+        position = $('.slide').eq(i).offset().left - $('.window').offset().left;
+        slidePositions.push(position);
     }
 
     console.log(slidePositions);
