@@ -9,21 +9,30 @@
 
 <body ng-controller="myController">
 
+<div class="container">
     <div class="row">
         <div class="col-md-12">
             <label for="colsPerRow">How many columns per row?</label>
-            <input ng-model="colsPerRow" name="colsPerRow">
+            <div class="input-group">
+                <input class="form-control" ng-model="colsPerRow" name="colsPerRow" type="number" min="1" step="1" onkeydown="return false">
+                <span class="input-group-addon" ng-click="colsDecrease()">
+                    <span class="glyphicon glyphicon-minus"></span>
+                </span>
+                <span class="input-group-addon" ng-click="colsIncrease()">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </span>
+            </div>
         </div>
     </div>
 
-    <!-- <div class="row" ng-repeat="rowNumber in rowNumbers(ipsums)"> -->
-        <div class="{{colClassName()}}" ng-repeat="ipsum in ipsums">
-         <!-- ng-if="isCorrectRow($index, rowNumber)"> -->
-            {{$index}}
+    <div class="row" ng-repeat="rowNumber in rowNumbers(ipsums)">
+        <div class="{{colClassName()}}" ng-repeat="ipsum in ipsums" ng-if="isCorrectRow($index, rowNumber)">
+            Content index: {{$index}}
             <br>
             {{ipsum}}
         </div>
-    <!-- </div> -->
+    </div>
+</div><!-- .container -->
 
 </body>
 
