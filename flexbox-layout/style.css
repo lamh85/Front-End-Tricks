@@ -1,0 +1,59 @@
+body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.column.left {
+  min-width: 200px;
+}
+
+.column.right {
+  flex-grow: 1
+}
+
+.row.first {
+  height: 100px;
+}
+
+.row.second {
+  flex-grow: 1;
+}
+
+.row.second .column.right {
+  padding: 1em;
+  overflow-y: scroll;
+}
+
+/* Colours ------------- */
+.row.first .column.left {
+  background: red;
+}
+
+.row.first .column.right {
+  background: blue;
+}
+
+.row.second .column.left {
+  background: green;
+}
+
+.row.second .column.right {
+  background: yellow;
+}
